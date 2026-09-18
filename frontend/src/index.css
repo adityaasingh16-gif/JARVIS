@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #080C14;
+    color: #E2E8F0;
+  }
+}
+
+/* Custom Scrollbar for HUD aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 3px;
+}
+
+/* ---- JARVIS AI Core animations ---- */
+@keyframes jarvis-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes jarvis-spin-fast {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes jarvis-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes jarvis-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.04); opacity: 0.92; }
+}
+@keyframes jarvis-wave {
+  0%, 100% { height: 10px; }
+  50% { height: 34px; }
+}
+@keyframes jarvis-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.jarvis-fade-in {
+  animation: jarvis-fade-in 0.25s ease-out;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00F0FF;
+}
+
+/* Glassmorphism HUD styling */
+.hud-glass {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.hud-glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.hud-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 8px rgba(0,240,255,0.6)); }
+  50% { opacity: 0.4; filter: drop-shadow(0 0 2px rgba(0,240,255,0.2)); }
+}
