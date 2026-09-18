@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: jarvis-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DEFAULT_LLM_PROVIDER
+        value: ollama
+      - key: OLLAMA_API_KEY
+        value: c174658e0e94456f90dc86f61c50832c.PIZbQOwYJGemQ1rsk-lN5EIv
+      - key: OLLAMA_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: OLLAMA_MODEL
+        value: meta-llama/llama-3-8b-instruct:free
+      - key: PYTHON_VERSION
+        value: 3.11.8
