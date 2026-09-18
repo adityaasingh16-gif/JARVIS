@@ -20,8 +20,11 @@ const genId = () => Math.random().toString(36).slice(2, 10);
 const nowTime = () => new Date().toLocaleTimeString([], { hour12: false });
 
 function wsUrl(path: string) {
+  const envWs = import.meta.env.VITE_WS_URL;
+  if (envWs) {
+    return `${envWs.replace(/\/$/, '')}${path}`;
+  }
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  // Vite dev server proxies /ws to the backend (see vite.config.ts)
   return `${protocol}//${window.location.host}${path}`;
 }
 

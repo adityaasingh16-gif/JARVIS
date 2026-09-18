@@ -1,6 +1,6 @@
 import { SystemStatus, ProjectItem, TaskItem } from '../types';
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 export async function fetchSystemStatus(): Promise<SystemStatus> {
   try {

@@ -16,9 +16,10 @@ export class JarvisWebSocketClient {
     this.onErrorCallback = onError;
     this.onToolCallback = onTool;
 
+    const envWs = import.meta.env.VITE_WS_URL;
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const host = window.location.host;
-    const wsUrl = `${protocol}//${host}/ws/chat`;
+    const wsUrl = envWs ? `${envWs.replace(/\/$/, '')}/ws/chat` : `${protocol}//${host}/ws/chat`;
 
     try {
       this.socket = new WebSocket(wsUrl);
